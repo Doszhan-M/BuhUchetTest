@@ -6,10 +6,13 @@
 
 2. Заполнить файл по шаблону:
 
-ADMINS=('Admin', 'почта админа')
-EMAIL_HOST=smtp сервер почты
-EMAIL_HOST_USER=почтовый адрес для отправки писем
-EMAIL_HOST_PASSWORD=пароль от почты
+EMAIL_HOST = smtp сервер почты
+EMAIL_HOST_USER = почтовый адрес для отправки писем
+EMAIL_HOST_PASSWORD = пароль от почты
+EMAIL_PORT = порт почтового сервера
+EMAIL_USE_TLS = False или True
+
+SECRET_KEY=секрет кей для джанго
 
 3. Сохранить файл
 
@@ -35,7 +38,7 @@ body:
     "user": {
         "email": "user1@mail.user",
         "password": "vfrtgb55"
-            }
+    }
 }
 
 # Получить пользователя:
@@ -49,7 +52,7 @@ body:
     "user": {
         "email": "user2@mail.user", 
         "password": "vfrtgb56"
-            }
+    }
 }   
 header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
 
@@ -57,12 +60,12 @@ header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZX
 GET url: localhost:8000/api/user/logout/
 header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
 
-# Сброс пароля, с отправкой на уведомления по email.:
+# Сброс пароля, с отправкой уведомления по email.:
 PATCH url: localhost:8000/api/user/pass_reset/
 body:
 {
     "user": {
         "email": "user1@mail.user"
-            }
+    }
 }   
 ```
