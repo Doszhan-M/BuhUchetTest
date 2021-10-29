@@ -56,7 +56,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_short_name(self):
         return self.username
-
+        
     @property
     def token(self):
         """Позволяет получить токен пользователя путем вызова user.token."""
@@ -73,4 +73,4 @@ class User(AbstractBaseUser, PermissionsMixin):
             'exp': int(dt.strftime('%s'))
         }, settings.SECRET_KEY, algorithm='HS256')
 
-        return token
+        return token 
