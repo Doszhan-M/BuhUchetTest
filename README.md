@@ -21,6 +21,7 @@ SECRET_KEY=секрет кей для джанго
 ### Примеры запросов для Postman
 ```
 # Регистрация пользователя:
+
 POST url: localhost:8000/api/users/signup/
 body:
 {
@@ -32,6 +33,7 @@ body:
 }
 
 # Авторизация пользователя:
+
 POST url: localhost:8000/api/users/login/
 body:
 {
