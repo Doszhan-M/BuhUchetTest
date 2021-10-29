@@ -45,13 +45,11 @@ body:
 }
 -----------------------------------------------------
 
-
 # Получить данные пользователя:
 
 GET url: localhost:8000/api/user/
 header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
 -----------------------------------------------------
-
 
 # Изменить данные пользователя:
 PATCH url: localhost:8000/api/user/
@@ -65,14 +63,12 @@ body:
 header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
 -----------------------------------------------------
 
-
 # Выход пользователя из сессии:
 GET url: localhost:8000/api/user/logout/
 header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
 -----------------------------------------------------
 
-
-# Сброс пароля, с отправкой уведомления по email.:
+# Сброс пароля, с отправкой уведомления по email:
 PATCH url: localhost:8000/api/user/pass_reset/
 body:
 {
