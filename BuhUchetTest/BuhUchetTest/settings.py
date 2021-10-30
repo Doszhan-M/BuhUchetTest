@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'django_extensions',
+    'drf_yasg',
 
     'apps.Accounts',
     'apps.ToDo',
@@ -126,7 +127,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'Accounts.User'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('apps.Accounts.backends.JWTAuthentication',),
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.SessionAuthentication',
+                                        'apps.Accounts.backends.JWTAuthentication', ),
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
 
