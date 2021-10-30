@@ -48,7 +48,7 @@ body:
 # Получить данные пользователя:
 
 GET url: localhost:8000/api/user/
-header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
+header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNjQ0MjI2MTMwfQ.UMrx7-qm6BFpHKQgBsSpd3fUIHZoU3UYHN90mkRgphk
 -----------------------------------------------------
 
 # Изменить данные пользователя:
@@ -60,12 +60,12 @@ body:
         "password": "vfrtgb56"
     }
 }   
-header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
+header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNjQ0MjI2MTMwfQ.UMrx7-qm6BFpHKQgBsSpd3fUIHZoU3UYHN90mkRgphk
 -----------------------------------------------------
 
 # Выход пользователя из сессии:
 GET url: localhost:8000/api/user/logout/
-header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
+header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNjQ0MjI2MTMwfQ.UMrx7-qm6BFpHKQgBsSpd3fUIHZoU3UYHN90mkRgphk
 -----------------------------------------------------
 
 # Сброс пароля, с отправкой уведомления по email:
@@ -84,7 +84,7 @@ GET url: localhost:8000/api/todo/
 
 # Получение одной задачи:
 GET url: localhost:8000/api/todo/1/
-header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
+header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNjQ0MjI2MTMwfQ.UMrx7-qm6BFpHKQgBsSpd3fUIHZoU3UYHN90mkRgphk
 -----------------------------------------------------
 
 # Создание задачи:
@@ -106,17 +106,17 @@ body:
     "deadline":"2022-10-30 15:37",
     "execute":"0"
 }
-header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
+header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNjQ0MjI2MTMwfQ.UMrx7-qm6BFpHKQgBsSpd3fUIHZoU3UYHN90mkRgphk
 -----------------------------------------------------
 
 # Удаление задачи:
 DELETE url: localhost:8000/api/todo/1/
-header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
+header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNjQ0MjI2MTMwfQ.UMrx7-qm6BFpHKQgBsSpd3fUIHZoU3UYHN90mkRgphk
 -----------------------------------------------------
 
-# Пометить задачу выполненной:
+# Пометить задачу выполненной с отправкой уведомления на почту:
 PATCH url: localhost:8000/api/todo/6/execute/
-header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
+header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNjQ0MjI2MTMwfQ.UMrx7-qm6BFpHKQgBsSpd3fUIHZoU3UYHN90mkRgphk
 -----------------------------------------------------
 
 ```
