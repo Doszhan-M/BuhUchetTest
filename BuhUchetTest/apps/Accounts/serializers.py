@@ -12,11 +12,12 @@ class RegistrationSerializer(serializers.ModelSerializer):
         min_length=8,
         write_only=True
     )
-    token = serializers.CharField(max_length=255, read_only=True) # токен только на чтение.
+    # токен только на чтение.
+    token = serializers.CharField(max_length=255, read_only=True)
 
     class Meta:
         model = User
-        fields = ['email', 'username', 'password', 'token',]
+        fields = ['email', 'username', 'password', 'token', ]
 
     def create(self, validated_data):
         '''Создать юзера через функцию в UserManager.'''
@@ -80,8 +81,9 @@ class UserSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         """ Выполняет обновление User. """
-        
-        password = validated_data.pop('password', None)   # удалить поле пароля из словаря
+
+        # удалить поле пароля из словаря
+        password = validated_data.pop('password', None)
 
         for key, value in validated_data.items():
             setattr(instance, key, value)

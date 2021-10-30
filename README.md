@@ -78,4 +78,45 @@ body:
 }  
 -----------------------------------------------------
 
+# Получение списка задач:
+GET url: localhost:8000/api/todo/
+-----------------------------------------------------
+
+# Получение одной задачи:
+GET url: localhost:8000/api/todo/1/
+header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
+-----------------------------------------------------
+
+# Создание задачи:
+POST url: localhost:8000/api/todo/1/
+body:
+{
+    "headline":"New headline",
+    "description":"New description",
+    "deadline":"2022-10-30 15:37",
+}
+-----------------------------------------------------
+
+# Редактирование задачи:
+PATCH url: localhost:8000/api/todo/1/
+body:
+{
+    "headline":"Change headline",
+    "description":"Change description",
+    "deadline":"2022-10-30 15:37",
+    "execute":"0"
+}
+header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
+-----------------------------------------------------
+
+# Удаление задачи:
+DELETE url: localhost:8000/api/todo/1/
+header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
+-----------------------------------------------------
+
+# Пометить задачу выполненной:
+PATCH url: localhost:8000/api/todo/6/execute/
+header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwiZXhwIjoxNjM1NTkxNzY1fQ.-P0Uty9GtmobLZcBD5YJRP2uREQX1N3xvHzAAD6tNcM
+-----------------------------------------------------
+
 ```

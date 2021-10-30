@@ -53,7 +53,7 @@ ROOT_URLCONF = 'BuhUchetTest.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'Templates',],
+        'DIRS': [BASE_DIR / 'Templates', ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,7 +125,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'Accounts.User'
 
-REST_FRAMEWORK = { 
+REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('apps.Accounts.backends.JWTAuthentication',),
     'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
@@ -140,7 +140,7 @@ EMAIL_PORT = os.getenv("EMAIL_PORT")
 EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS")
 SERVER_EMAIL = EMAIL_HOST_USER
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-ADMINS = [('Admin', 'admin@mail.ru'),]
+ADMINS = [('Admin', 'admin@mail.ru'), ]
 EMAIL_SUBJECT_PREFIX = '[Django] '
 
 

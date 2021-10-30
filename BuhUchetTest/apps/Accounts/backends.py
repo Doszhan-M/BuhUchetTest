@@ -22,7 +22,7 @@ class JWTAuthentication(authentication.BaseAuthentication):
         elif len(auth_header) > 2:
             # Некорректный заголовок токена, какие-то лишние пробельные символы
             return None
-            
+
         prefix = auth_header[0].decode('utf-8')
         token = auth_header[1].decode('utf-8')
 
@@ -38,7 +38,8 @@ class JWTAuthentication(authentication.BaseAuthentication):
         вернуть пользователя и токен, иначе - сгенерировать исключение.
         """
         try:
-            payload = jwt.decode(jwt=token, key=settings.SECRET_KEY, algorithms=['HS256'])
+            payload = jwt.decode(
+                jwt=token, key=settings.SECRET_KEY, algorithms=['HS256'])
         except Exception:
             msg = 'Ошибка аутентификации. Невозможно декодировать токен'
             raise exceptions.AuthenticationFailed(msg)

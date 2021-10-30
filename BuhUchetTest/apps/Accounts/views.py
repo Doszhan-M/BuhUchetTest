@@ -1,9 +1,10 @@
 from rest_framework import status
-from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.generics import RetrieveUpdateAPIView, UpdateAPIView, RetrieveAPIView
 from django.contrib.auth import logout
+from password_generator import PasswordGenerator
 
 from .models import User
 from .serializers import RegistrationSerializer, LoginSerializer, UserSerializer
@@ -60,10 +61,10 @@ class LogoutAPIView(APIView):
     '''Выход пользователя.'''
 
     def get(self, request, format=None):
-        logout(request) # using Django logout
+        logout(request)  # using Django logout
         return Response(status=status.HTTP_200_OK)
 
-from password_generator import PasswordGenerator
+
 class PasswordResetApiView(UpdateAPIView):
     '''Сброс пароля, с отправкой на уведомления по email'''
 
@@ -84,7 +85,8 @@ class PasswordResetApiView(UpdateAPIView):
         serializer_data = request.data.get('user', {})
         serializer_data['password'] = new_password
         instance = self.get_object()
-        serializer = self.serializer_class(instance, data=serializer_data, partial=True)
+        serializer = self.serializer_class(
+            instance, data=serializer_data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         new_password_send_to_email.delay(instance.email, new_password)
