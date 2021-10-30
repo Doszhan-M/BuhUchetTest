@@ -5,8 +5,6 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from .serializers import ToDoListserializer, ToDoserializer
 from .models import ToDo
-from apps.Accounts.models import User
-from django.db.models import Count
 
 
 class ToDoListApiView(generics.ListCreateAPIView):
@@ -17,11 +15,12 @@ class ToDoListApiView(generics.ListCreateAPIView):
     permission_classes = (AllowAny,)
 
     def get(self, request, *args, **kwargs):
-        users = User.objects.all()
-        print([user.email for user in users])
-        return super().get(request, *args, **kwargs)
+        response = super(ToDoListApiView, self).get(request, *args, **kwargs)
+        for obj in response.data:
+            obj.pop('description')
+        return response
 
-
+    
 class ToDoGetUpdateDelApiView(generics.RetrieveUpdateDestroyAPIView):
     '''Получить, обновить или удалить задачу.
     '''
