@@ -67,6 +67,18 @@ class ToDoTests(APITestCase):
         self.assertEqual(ToDo.objects.get(headline='Change headline').description, 'Change description')
 
 
+    def test_todo_update_deadline(self):
+        '''Проверить валидацию поля deadline.
+        '''
+        url = reverse('todo:todogetupdel', kwargs={'pk':1})
+        client.credentials(HTTP_AUTHORIZATION='Token ' + self.user.token)
+        body = {
+                'deadline': '2012-10-31 15:20+00:00'
+        }
+        response = client.patch(url, body, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+
     def test_todo_delete(self):
         '''Проверить удаление задачи.
         '''
