@@ -118,7 +118,7 @@ DELETE url: localhost:8000/api/todo/1/
 header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNjQ0MjI2MTMwfQ.UMrx7-qm6BFpHKQgBsSpd3fUIHZoU3UYHN90mkRgphk
 -----------------------------------------------------
 
-# Пометить задачу выполненной с отправкой уведомления на почту:
+# Отметить задачу выполненной с отправкой уведомления на почту:
 PATCH url: localhost:8000/api/todo/6/execute/
 header: Authorization, Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NywiZXhwIjoxNjQ0MjI2MTMwfQ.UMrx7-qm6BFpHKQgBsSpd3fUIHZoU3UYHN90mkRgphk
 -----------------------------------------------------

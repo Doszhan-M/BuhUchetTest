@@ -56,3 +56,35 @@ class AccountTests(APITestCase):
         response = client.get(url, None, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data.get('username'), 'casper')
+
+
+    def test_update_user(self):
+        '''Проверить обновление данных пользователя.
+        '''
+        url = reverse('accounts:user')
+        client.credentials(HTTP_AUTHORIZATION='Token ' + self.user.token)
+        body = {
+            "user": {
+                'username': 'newcasper'
+            }
+        }
+        response = client.patch(url, body, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(User.objects.first().username, 'newcasper')
+
+
+    def test_pass_reset(self):
+        '''Проверить сброс пароля пользователя.
+        '''
+        preview_pass = self.user.password
+        url = reverse('accounts:pass_reset')
+        body = {
+            "user": {
+                'email': self.user.email
+            }
+        }
+        response = client.patch(url, body, format='json')
+        self.user.refresh_from_db()
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        new_pass = self.user.password
+        self.assertNotEqual(preview_pass, new_pass)
