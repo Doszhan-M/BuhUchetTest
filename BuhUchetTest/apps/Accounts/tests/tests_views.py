@@ -12,9 +12,9 @@ client = APIClient()
 class AccountTests(APITestCase):
 
     def setUp(self) -> None:
-        self.user = User.objects.create_user(username='casper', email='casper@mail.ru', password='password123')
+        self.user = User.objects.create_user(
+            username='casper', email='casper@mail.ru', password='password123')
         return super().setUp()
-
 
     def test_register_account(self):
         '''Проверить регистрацию пользователя
@@ -30,8 +30,8 @@ class AccountTests(APITestCase):
         response = client.post(url, body, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(User.objects.count(), 2)
-        self.assertEqual(User.objects.get(email='casper@mail.ru1').username, 'username1')
-
+        self.assertEqual(User.objects.get(
+            email='casper@mail.ru1').username, 'username1')
 
     def test_login_account(self):
         '''Проверить авторизацию пользователя
@@ -47,7 +47,6 @@ class AccountTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertGreater(len(response.data.get('token')), 0)
 
-
     def test_get_user(self):
         '''Проверить получения пользователя
         '''
@@ -56,7 +55,6 @@ class AccountTests(APITestCase):
         response = client.get(url, None, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data.get('username'), 'casper')
-
 
     def test_update_user(self):
         '''Проверить обновление данных пользователя.
@@ -71,7 +69,6 @@ class AccountTests(APITestCase):
         response = client.patch(url, body, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(User.objects.first().username, 'newcasper')
-
 
     def test_pass_reset(self):
         '''Проверить сброс пароля пользователя.
