@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+    web:
+        build: ./BuhUchetTest
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes: 
+          - ./BuhUchetTest:/home/github/BuhUchetTest/
+        ports:
+          - 8000:8000
+        env_file:
+          - .env
+        depends_on:
+          - redis
+
+    redis:
+        image: redis:6-alpine
+
+    celery:
+        build: ./BuhUchetTest
+        command: celery -A BuhUchetTest worker -l INFO
+        volumes: 
+          - ./BuhUchetTest:/home/github/BuhUchetTest/
+        env_file:
+          - .env
+        depends_on:
+          - web
+          - redis
+
+    dashboard:
+        build: ./BuhUchetTest
+        command: celery flower --port=5555 --broker=redis://redis:6379
+        volumes: 
+          - ./BuhUchetTest:/home/github/BuhUchetTest/
+        ports:
+          - 5555:5555
+        env_file:
+          - .env
+        depends_on:
+          - web
+          - redis
+          - celery

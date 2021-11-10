@@ -4,7 +4,7 @@ from .models import ToDo
 
 
 class ToDoPanel(admin.ModelAdmin):
-    list_display = ('headline', 'deadline', 'execute',)
+    list_display = ('id', 'headline', 'deadline', 'execute',)
     list_display_links = ('headline', 'deadline', 'execute',)
     ordering = ['-id']
 
