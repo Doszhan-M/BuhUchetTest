@@ -1,10 +1,8 @@
 # BuhUchetTest
-``
-#### Для корректной работы программы необходим  redis
-``
+
 ### Настройка почтового сервера!
 ```
-1. Создать файл secret.env в папке secret
+1. Создать файл .env в корне
 
 2. Заполнить файл по шаблону:
 
@@ -13,6 +11,9 @@ EMAIL_HOST_USER = почтовый адрес для отправки писем
 EMAIL_HOST_PASSWORD = пароль от почты
 EMAIL_PORT = порт почтового сервера
 EMAIL_USE_TLS = False или True
+
+CELERY_BROKER_URL = redis://redis:6379
+CELERY_RESULT_BACKEND = redis://redis:6379
 
 SECRET_KEY=секрет кей для джанго
 
